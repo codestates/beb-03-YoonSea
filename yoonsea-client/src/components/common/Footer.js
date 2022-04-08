@@ -5,7 +5,7 @@ const footer = () => {
   // 로고를 보여줘야 한다
   // 팀원에 대한 정보를 보여줘야 한다
 
-  return <div></div>;
+  return <div>Footer</div>;
 };
 
 export default footer;
