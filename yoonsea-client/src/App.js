@@ -1,25 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  // eth, klaytn (팀원과 협의) => eth rospten
+  // server, db가 들어갈 부분? => 안쓴다
+  // ipfs에서 이미지를 가져오는데 시간이 많이 걸린다?
+
+  return <div className="App"></div>;
 }
 
 export default App;
