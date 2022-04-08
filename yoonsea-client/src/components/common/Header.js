@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   // user scenario
@@ -14,7 +15,14 @@ const Header = () => {
 
   // react-router v5 v6 - spa의 페이지 이동
   // web3 - metamask 데이터 관리
-  return <div></div>;
+  return (
+    <div>
+      <Link to="/">Home</Link>
+      <Link to="/create">Create</Link>
+      <Link to="/explore">Explore</Link>
+      <Link to="/profile">Profile</Link>
+    </div>
+  );
 };
 
 export default Header;
