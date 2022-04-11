@@ -6,7 +6,6 @@ import HomePage from './pages/HomePage';
 import ExplorePage from './pages/ExplorePage';
 import CreatePage from './pages/CreatePage';
 import ProfilePage from './pages/ProfilePage';
-import './App.css';
 // import Web3 from 'web3';
 
 function App() {
