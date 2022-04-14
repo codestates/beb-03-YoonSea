@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { Context } from '../../context/index';
+import { SET_ACCOUNT } from '../../context/action';
 
 const Header = () => {
   // user scenario
@@ -15,12 +17,26 @@ const Header = () => {
 
   // react-router v5 v6 - spa의 페이지 이동
   // web3 - metamask 데이터 관리
+
+  const { dispatch } = useContext(Context);
+  const connectWallet = async () => {
+    let accounts = await window.ethereum.request({
+      method: 'eth_requestAccounts',
+    });
+    dispatch({
+      type: SET_ACCOUNT,
+      payload: accounts[0],
+    });
+  };
   return (
     <div>
       <Link to="/">Home</Link>
       <Link to="/create">Create</Link>
       <Link to="/explore">Explore</Link>
       <Link to="/profile">Profile</Link>
+      <button type="button" onClick={connectWallet}>
+        Wallet
+      </button>
     </div>
   );
 };
