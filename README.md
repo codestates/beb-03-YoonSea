@@ -4,11 +4,20 @@
 Opensea Clone으로 간단한 기능을 구현 프로젝트이다.
 
 ## Get Start
+``` shell
+# Installation
+$ npm install
 
-### Installation
+# Run Start
+$ cd yoonsea-client
+$ npm run start
+```
 
-### Run Start
-
+### Set Contract Address
+``` shell
+# .env 파일을 수정해야한다.
+REACT_APP_CONTRACT_ADDRESS='write your contract address'
+```
 
 ## Project Description
 ### Folder Structure
