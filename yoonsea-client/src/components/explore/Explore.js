@@ -3,7 +3,7 @@ import Web3 from 'web3';
 import { ListBlock } from './styles/Explore.styles';
 
 import Erc721 from './Erc721';
-import erc721Abi from '../../contract/erc721Abi';
+import erc721Abi from '../../contracts/erc721Abi';
 
 const newErc721addr = '0xf356c73894057be1168ed966918f546b470798e2';
 
