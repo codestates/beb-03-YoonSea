@@ -21,28 +21,31 @@ const Erc721 = ({ token, web3, account, newErc721addr }) => {
   };
 
   return (
-    <div className="m-4">
-      <div className="w-80 bg-white rounded-xl shadow-md">
-        {/* image */}
-        <img
-          className="h-60 object-cover rounded-xl"
-          src={token.tokenURI}
-          alt={token.tokenURI}
-        />
-        <div className="p-8">
-          {/* token name */}
-          <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
-            {token.name}
-          </div>
-          {/* token owner */}
-          <div className="block mt-1 text-lg leading-tight font-medium text-black">
-            {tokenOwner}
-          </div>
-          {/* token content */}
-          <span className="mt-2 text-gray-500">
-            Welcome to the Yoon Sea page.
-          </span>
+    <div className="m-4 w-80 bg-white rounded-xl shadow-md">
+      {/* image */}
+      <img
+        className="h-60 object-cover rounded-t-xl"
+        src={token.tokenURI}
+        alt={token.tokenURI}
+      />
+      <div className="p-6 text-center">
+        {/* <img
+          src="https://storage.opensea.io/files/6f8e2979d428180222796ff4a33ab929.svg"
+          alt="eth"
+          className="h-5 mr-2"
+        /> */}
+        {/* token name */}
+        <div className="uppercase tracking-wide text-L text-indigo-500 font-semibold">
+          {token.name}
         </div>
+        {/* token owner */}
+        <div className="block mt-1 text-m leading-tight font-medium text-black">
+          {tokenOwner}
+        </div>
+        {/* token content */}
+        <span className="mt-2 text-xs text-gray-500">
+          Welcome to the Yoon Sea page.
+        </span>
       </div>
     </div>
   );
