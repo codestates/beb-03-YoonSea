@@ -1,17 +1,16 @@
 import { createContext, useReducer } from 'react';
 import { SET_WEB3, SET_ACCOUNT, SET_TOKEN_CONTRACT } from './action';
-import { dotenv } from 'dotenv';
-import abi from '../contract/erc721Abi';
+import abi from '../contracts/erc721Abi';
 
-dotenv.config();
-console.log('adsfasf', process.env.CONTRACT_ADDRESS);
-const contractAddress = process.env.CONTRACT_ADDRESS;
+require('dotenv').config();
+const contractAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
 
 // context 초기화
 const initialState = {
   web3: '',
   account: '',
   contractAddr: contractAddress,
+  abi: abi,
 };
 
 // Context 객체 생성 => Provider, Consumer 속성이 있다.
