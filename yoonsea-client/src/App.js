@@ -4,6 +4,8 @@ import Footer from './components/common/Footer';
 import HomePage from './pages/MarketplacePage';
 import Create from './components/create/Create';
 import ExplorePage from './pages/ExplorePage';
+import MyListedItems from './components/explore/MyListedItems';
+import MyPurchases from './components/explore/MyPurchases';
 import ProfilePage from './pages/ProfilePage';
 import MarketplacePage from './pages/MarketplacePage';
 import { Routes, Route } from 'react-router-dom';
@@ -75,10 +77,30 @@ function App() {
             />
             <Route path="/explore" element={<ExplorePage />} />
             <Route path="/profile" element={<ProfilePage />} />
-            {/* <Route
+            <Route
               path="/marketplace"
               element={<MarketplacePage marketplace={marketplace} nft={nft} />}
-            /> */}
+            />
+            <Route
+              path="/my-listed-items"
+              element={
+                <MyListedItems
+                  marketplace={marketplace}
+                  nft={nft}
+                  account={account}
+                />
+              }
+            />
+            <Route
+              path="/my-purchases"
+              element={
+                <MyPurchases
+                  marketplace={marketplace}
+                  nft={nft}
+                  account={account}
+                />
+              }
+            />
           </Routes>
         )}
       </div>
