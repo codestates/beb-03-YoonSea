@@ -1,5 +1,16 @@
 import React from 'react';
 
+const Logs = [
+  { name: 'andreessen horowiz', url: '' },
+  { name: 'Coinbase', url: '' },
+  { name: 'Combinator', url: '' },
+  { name: 'Trust Wallet', url: '' },
+  { name: 'Dapper', url: '' },
+  { name: '', url: '' },
+  { name: '', url: '' },
+  { name: '', url: '' },
+];
+
 const footer = () => {
   // user scenario
   // 로고를 보여줘야 한다

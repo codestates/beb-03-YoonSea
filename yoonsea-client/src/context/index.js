@@ -1,14 +1,30 @@
 import { createContext, useReducer } from 'react';
-import { SET_WEB3, SET_ACCOUNT } from './action';
+import { SET_WEB3, SET_ACCOUNT, SET_TOKEN_CONTRACT } from './action';
+import { dotenv } from 'dotenv';
+import abi from '../contract/erc721Abi';
+
+dotenv.config();
+console.log('adsfasf', process.env.CONTRACT_ADDRESS);
+const contractAddress = process.env.CONTRACT_ADDRESS;
 
 // context 초기화
 const initialState = {
   web3: '',
   account: '',
+  contractAddr: contractAddress,
 };
 
 // Context 객체 생성 => Provider, Consumer 속성이 있다.
 const Context = createContext({});
+
+const setContract = async (web) => {
+  try {
+    let result = await new web.eth.Contract(abi, contractAddress);
+    return result;
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 // 각 액션에 동작하는 Reducer 구현
 const reducer = (state = initialState, action) => {
@@ -23,6 +39,8 @@ const reducer = (state = initialState, action) => {
         ...state,
         account: action.payload,
       };
+    case SET_TOKEN_CONTRACT:
+      return setContract(state.web3);
     default:
       return state;
   }

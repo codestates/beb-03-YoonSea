@@ -18,6 +18,10 @@ import { ethers } from 'ethers';
 import './App.css';
 // import Web3 from 'web3';
 
+const style = {
+  wrapper: `min-h-screen`,
+};
+
 function App() {
   // eth, klaytn (팀원과 협의) => eth rospten
   // server, db가 들어갈 부분? => 안쓴다
@@ -37,6 +41,8 @@ function App() {
     window.ethereum.on('chainChanged', (chainId) => {
       window.location.reload();
     });
+    //  const [web3, setWeb3] = useState();
+    const { dispatch } = useContext(Context);
 
     window.ethereum.on('accountsChanged', async function (accounts) {
       setAccount(accounts[0]);
@@ -84,6 +90,18 @@ function App() {
         )}
       </div>
       <Footer />
+      {/* <div className={style.wrapper}>
+        <Header />
+        <main className={style.main}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/create" element={<CreatePage />} />
+            <Route path="/explore" element={<ExplorePage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div> */}
     </div>
   );
 }

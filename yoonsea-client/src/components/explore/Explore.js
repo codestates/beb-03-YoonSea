@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import Web3 from 'web3';
+import React, { useContext, useEffect, useState } from 'react';
+// import Web3 from 'web3';
+import { Context } from '../../context/index';
 import { ListBlock } from './styles/Explore.styles';
-
 import Erc721 from './Erc721';
 import erc721Abi from '../../contracts/erc721Abi';
-
-const newErc721addr = '0xf356c73894057be1168ed966918f546b470798e2';
 
 const Explore = () => {
   // user scenario
@@ -22,23 +20,28 @@ const Explore = () => {
   // ifps
 
   // web3 객체 상태 관리
-  const [web3, setWeb3] = useState(null);
+  // const [web3, setWeb3] = useState(null);
   // metamask 지갑 주소 관리
   const [account, setAccount] = useState(null);
   // erc721 토큰리스트 관리
   const [erc721List, setErc721List] = useState([]);
 
+  const { state } = useContext(Context);
+  const web3 = state.web3;
+  const newErc721addr = state.contractAddr;
+  console.log('newErc721add', newErc721add);
+
   // Web3 객체 상태 세팅 (비동기)
-  useEffect(() => {
-    if (typeof window.ethereum !== 'undefined') {
-      try {
-        const web = new Web3(window.ethereum);
-        setWeb3(web);
-      } catch (err) {
-        console.log(err);
-      }
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (typeof window.ethereum !== 'undefined') {
+  //     try {
+  //       const web = new Web3(window.ethereum);
+  //       setWeb3(web);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   }
+  // }, []);
 
   // erc721List 상태 세팅 (비동기)
   useEffect(async () => {
