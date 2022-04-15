@@ -33,7 +33,7 @@ const Header = () => {
   // react-router v5 v6 - spa의 페이지 이동
   // web3 - metamask 데이터 관리
 
-  const { state, dispatch } = useContext(Context);
+  const { dispatch } = useContext(Context);
   const connectWallet = async () => {
     let accounts = await window.ethereum.request({
       method: 'eth_requestAccounts',
@@ -42,7 +42,6 @@ const Header = () => {
       type: SET_ACCOUNT,
       payload: accounts[0],
     });
-    console.log('account', state.account);
   };
   return (
     <header className={style.wrapper} height={72}>

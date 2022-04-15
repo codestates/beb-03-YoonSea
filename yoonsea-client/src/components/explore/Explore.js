@@ -29,8 +29,6 @@ const Explore = () => {
   const newErc721addr = state.contractAddr;
   const abi = state.abi;
 
-  console.log('newErc721addr', newErc721addr);
-
   // erc721List 상태 세팅 (비동기)
   useEffect(async () => {
     if (state.web3) {

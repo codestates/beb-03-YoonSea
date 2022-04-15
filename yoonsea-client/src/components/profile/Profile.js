@@ -39,18 +39,8 @@ const Profile = () => {
   const web3 = state.web3;
   const newErc721addr = state.contractAddr;
   const abi = state.abi;
-  console.log('web3', web3);
-  console.log('newErc721addr', newErc721addr);
 
   useEffect(() => {
-    // if (typeof window.ethereum != 'undefined') {
-    //   try {
-    //     const web = new Web3(window.ethereum);
-    //     setWeb3(web);
-    //   } catch (e) {
-    //     console.log(e);
-    //   }
-    // }
     connectWallet();
   }, []);
 

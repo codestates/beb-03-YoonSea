@@ -77,9 +77,6 @@ function App() {
     }
   }, [dispatch]);
 
-  console.log('app_web3', state.web3);
-  console.log('app_account', state.account);
-
   return (
     <div className="app">
       <Header />
