@@ -18,6 +18,7 @@ const Explore = () => {
   // 해당 주소에서 보유하고있는 모든 NFT?
   // 페이지에서 발행된 모든 NFT?
 
+  console.log('explore');
   // ifps
 
   // web3 객체 상태 관리
