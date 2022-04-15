@@ -51,6 +51,7 @@
     "@babel/preset-env": "^7.16.11",
     "@craco/craco": "^6.4.3",
     "autoprefixer": "^9.8.8",
+    "dotenv": "^16.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "postcss": "^7.0.39",
