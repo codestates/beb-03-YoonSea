@@ -76,10 +76,10 @@ function App() {
             />
             <Route path="/explore" element={<ExplorePage />} />
             <Route path="/profile" element={<ProfilePage />} />
-            <Route
+            {/* <Route
               path="/marketplace"
               element={<MarketplacePage marketplace={marketplace} nft={nft} />}
-            />
+            /> */}
           </Routes>
         )}
       </div>
