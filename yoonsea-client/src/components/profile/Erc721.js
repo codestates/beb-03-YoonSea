@@ -1,4 +1,4 @@
-import erc721Abi from '../../contract/erc721Abi';
+import erc721Abi from '../../contracts/erc721Abi';
 import { useState } from 'react';
 import Avatar from 'react-avatar';
 import {
