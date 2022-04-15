@@ -18,6 +18,7 @@ const Explore = () => {
   // 해당 주소에서 보유하고있는 모든 NFT?
   // 페이지에서 발행된 모든 NFT?
 
+  console.log('explore');
   // ifps
 
   // web3 객체 상태 관리
@@ -90,7 +91,7 @@ const Explore = () => {
         connect to MetaMask
       </button>
       {/* Button All(자신의 것을 포함한), Sell(Approve 된 것들) */}
-      <ListBlock>
+      <div className="md:flex flex-wrap">
         {erc721List.map((token) => {
           return (
             <Erc721
@@ -102,7 +103,7 @@ const Explore = () => {
             />
           );
         })}
-      </ListBlock>
+      </div>
     </div>
   );
 };

@@ -1,11 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Avatar from 'react-avatar';
-import {
-  Block,
-  ImageBlock,
-  ContentBlock,
-  LogoBlock,
-} from './styles/Erc721.styles';
 
 import erc721Abi from '../../contracts/erc721Abi';
 
@@ -28,26 +21,33 @@ const Erc721 = ({ token, web3, account, newErc721addr }) => {
   };
 
   return (
-    <Block>
-      <ImageBlock>
-        <img src={token.tokenURI} alt={token.tokenURI} width={300} />
-      </ImageBlock>
-      <ContentBlock>
-        <LogoBlock>
-          <Avatar
-            color={Avatar.getRandomColor(tokenOwner, ['red', 'green', 'blue'])}
-            size="50"
-            round="50px"
-            name={token.name}
-          />
-        </LogoBlock>
-        <div>
-          <strong>{token.name}</strong>
+    <div className="m-4 w-80 bg-white rounded-xl shadow-md">
+      {/* image */}
+      <img
+        className="h-60 object-cover rounded-t-xl"
+        src={token.tokenURI}
+        alt={token.tokenURI}
+      />
+      <div className="p-6 text-center">
+        {/* <img
+          src="https://storage.opensea.io/files/6f8e2979d428180222796ff4a33ab929.svg"
+          alt="eth"
+          className="h-5 mr-2"
+        /> */}
+        {/* token name */}
+        <div className="uppercase tracking-wide text-L text-black font-semibold">
+          {token.name}
         </div>
-        <div>{tokenOwner}</div>
-        <span>Welcome to the Yoon Sea page. </span>
-      </ContentBlock>
-    </Block>
+        {/* token owner */}
+        <div className="block mt-1 text-m leading-tight text-indigo-500 font-semibold">
+          {tokenOwner}
+        </div>
+        {/* token content */}
+        <span className="mt-2 text-xs text-gray-500">
+          Welcome to the Yoon Sea page.
+        </span>
+      </div>
+    </div>
   );
 };
 
