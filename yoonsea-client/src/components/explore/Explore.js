@@ -73,25 +73,25 @@ const Explore = () => {
   };
 
   // 메타마스크 지갑 연결
-  const connectWallet = async () => {
-    const accounts = await window.ethereum.request({
-      method: 'eth_requestAccounts',
-    });
-    setAccount(accounts[0]);
-  };
+  // const connectWallet = async () => {
+  //   const accounts = await window.ethereum.request({
+  //     method: 'eth_requestAccounts',
+  //   });
+  //   setAccount(accounts[0]);
+  // };
 
   return (
     <div>
-      Explore Components
+      {/* Explore Components
       <button
         onClick={() => {
           connectWallet();
         }}
       >
         connect to MetaMask
-      </button>
+      </button> */}
       {/* Button All(자신의 것을 포함한), Sell(Approve 된 것들) */}
-      <div className="md:flex flex-wrap">
+      <div className="md:flex flex-wrap justify-center">
         {erc721List.map((token) => {
           return (
             <Erc721

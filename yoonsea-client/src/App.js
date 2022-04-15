@@ -16,6 +16,7 @@ import { useState } from 'react';
 import { ethers } from 'ethers';
 
 import './App.css';
+import Loading from './components/common/Loading';
 // import Web3 from 'web3';
 
 function App() {
@@ -64,9 +65,7 @@ function App() {
       </>
       <div>
         {loading ? (
-          <div>
-            <p className="mx-3 my-0">Awaiting Metamask Connection...</p>
-          </div>
+          <Loading />
         ) : (
           <Routes>
             <Route path="/" element={<HomePage />} />
