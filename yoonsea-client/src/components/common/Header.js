@@ -9,26 +9,14 @@ import { MdOutlineAccountBalanceWallet } from 'react-icons/md';
 const style = {
   wrapper: `bg-white w-screen px-5 py-3.5 flex shadow-md`,
   logoContainer: `flex items-center cursor-pointer`,
-  logoText: ` ml-[0.8rem] text-[#03111d] font-semibold text-2xl`,
-  searchBar: `flex flex-1 mx-[0.8rem] w-max-[520px] items-center bg-white border border-gray rounded-[0.8rem]`,
-  searchIcon: `text-[#8a939b] mx-3 font-bold text-lg`,
-  searchInput: `h-[2.6rem] w-full border-0 bg-transparent outline-0 ring-0 px-2 pl-0 text-[#e6e8eb] placeholder:text-[#8a939b]`,
+  logoText: ` ml-3.5 text-black font-semibold text-2xl`,
+  searchBar: `flex flex-1 mx-3.5 w-max-[520px] items-center bg-white border border-gray rounded-[0.8rem]`,
+  searchIcon: `text-gray1 mx-3.5 font-bold text-lg`,
+  searchInput: `h-10 w-full border-0 bg-transparent outline-0 ring-0 px-2 pl-0 text-gray2 placeholder:text-gray1`,
   headerItems: ` flex items-center justify-end`,
-  headerItem: `text-[#03111d] px-4 font-bold text-headerItems-rgba hover:text-headerItems-hover-rgba cursor-pointer`,
+  headerItem: `text-black px-4 font-bold text-headerItems-rgba hover:text-headerItems-hover-rgba cursor-pointer`,
   headerIcon: `text-headerItems-rgba text-3xl font-black px-4 hover:text-headerItems-hover-rgba cursor-pointer`,
 };
-
-// const style = {
-//   wrapper: `bg-white w-screen px-5 py-3.5 flex `,
-//   logoContainer: `flex items-center cursor-pointer`,
-//   logoText: ` ml-[0.8rem] text-white font-semibold text-2xl`,
-//   // searchBar: `flex flex-1 mx-[0.8rem] w-max-[520px] items-center bg-[#363840] rounded-[0.8rem] hover:bg-[#4c505c]`,
-//   // searchIcon: `text-[#8a939b] mx-3 font-bold text-lg`,
-//   // searchInput: `h-[2.6rem] w-full border-0 bg-transparent outline-0 ring-0 px-2 pl-0 text-[#e6e8eb] placeholder:text-[#8a939b]`,
-//   headerItems: ` flex items-center justify-end`,
-//   headerItem: `text-white px-4 font-bold text-[#c8cacd] hover:text-white cursor-pointer`,
-//   headerIcon: `text-[#8a939b] text-3xl font-black px-4 hover:text-white cursor-pointer`,
-// };
 
 const Header = () => {
   // user scenario
@@ -57,7 +45,7 @@ const Header = () => {
     console.log('account', state.account);
   };
   return (
-    <div className={style.wrapper} height={72}>
+    <header className={style.wrapper} height={72}>
       {/* <Link href="/"> */}
       <div className={style.logoContainer}>
         <Link to="/">
@@ -92,36 +80,19 @@ const Header = () => {
             <CgProfile />
           </div>
         </Link>
-        <Link to="/marketplace">
+        <button type="button" onClick={connectWallet}>
           <div className={style.headerIcon}>
             <MdOutlineAccountBalanceWallet />
           </div>
-        </Link>
-        <Link to="/my-listed-items">
+        </button>
+        {/* <Link to="/my-listed-items">
           <div className="my-listed-items">MyListedItems</div>
         </Link>
         <Link to="/my-purchases">
           <div className="my-purchases">MyPurchases</div>
-        </Link>
+        </Link> */}
       </div>
-    </div>
-    // <header className={style.wrapper}>
-    //   <h1>
-    //     <Link to="/">
-    //       <span>
-    //         <img src="" alt="" />
-    //       </span>
-    //     </Link>
-    //   </h1>
-    //   <div>
-    //     <Link to="/create">Create</Link>
-    //     <Link to="/explore">Explore</Link>
-    //     <Link to="/profile">Profile</Link>
-    //     <button type="button" onClick={connectWallet}>
-    //       Wallet
-    //     </button>
-    //   </div>
-    // </header>
+    </header>
   );
 };
 export default Header;
