@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
   // user scenario
@@ -16,7 +17,17 @@ const Profile = () => {
   // 다른 컨트랙트에서 만든 NFT도 가져올 것인지 (까다로움) (팀원과 협의) // advanced
   // web3
 
-  return <div></div>;
+  const navigate = useNavigate();
+
+  return (
+    <div>
+      <button onClick={() => navigate('/my-listed-items')}>
+        MyListedItems
+      </button>
+      <br />
+      <button onClick={() => navigate('/my-purchases')}>MyPurchases</button>
+    </div>
+  );
 };
 
 export default Profile;

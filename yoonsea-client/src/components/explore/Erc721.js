@@ -7,7 +7,7 @@ import {
   LogoBlock,
 } from './styles/Erc721.styles';
 
-import erc721Abi from '../../contract/erc721Abi';
+import erc721Abi from '../../contracts/erc721Abi';
 
 const Erc721 = ({ token, web3, account, newErc721addr }) => {
   const [tokenOwner, setTokenOwner] = useState('');
