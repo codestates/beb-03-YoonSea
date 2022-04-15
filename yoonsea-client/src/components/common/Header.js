@@ -83,6 +83,12 @@ const Header = () => {
             <MdOutlineAccountBalanceWallet />
           </div>
         </Link>
+        <Link to="/my-listed-items">
+          <div className="my-listed-items">MyListedItems</div>
+        </Link>
+        <Link to="/my-purchases">
+          <div className="my-purchases">MyPurchases</div>
+        </Link>
       </div>
     </div>
   );

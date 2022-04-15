@@ -17,9 +17,9 @@ const Navigation = ({ web3Handler, account }) => {
               </Button>
             </Nav.Link>
           ) : (
-            <Button onClick={web3Handler} variant="outline-light">
+            <button onClick={web3Handler} variant="outline-light">
               Connect Wallet
-            </Button>
+            </button>
           )}
         </Nav>
       </Container>
