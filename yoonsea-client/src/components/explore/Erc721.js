@@ -35,11 +35,11 @@ const Erc721 = ({ token, web3, account, newErc721addr }) => {
           className="h-5 mr-2"
         /> */}
         {/* token name */}
-        <div className="uppercase tracking-wide text-L text-indigo-500 font-semibold">
+        <div className="uppercase tracking-wide text-L text-black font-semibold">
           {token.name}
         </div>
         {/* token owner */}
-        <div className="block mt-1 text-m leading-tight font-medium text-black">
+        <div className="block mt-1 text-m leading-tight text-indigo-500 font-semibold">
           {tokenOwner}
         </div>
         {/* token content */}
