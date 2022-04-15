@@ -90,7 +90,7 @@ const Explore = () => {
         connect to MetaMask
       </button>
       {/* Button All(자신의 것을 포함한), Sell(Approve 된 것들) */}
-      <ListBlock>
+      <div className="md:flex flex-wrap">
         {erc721List.map((token) => {
           return (
             <Erc721
@@ -102,7 +102,7 @@ const Explore = () => {
             />
           );
         })}
-      </ListBlock>
+      </div>
     </div>
   );
 };
