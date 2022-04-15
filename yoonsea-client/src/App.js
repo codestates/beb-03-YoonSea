@@ -4,6 +4,8 @@ import Footer from './components/common/Footer';
 import HomePage from './pages/MarketplacePage';
 import Create from './components/create/Create';
 import ExplorePage from './pages/ExplorePage';
+import MyListedItems from './components/explore/MyListedItems';
+import MyPurchases from './components/explore/MyPurchases';
 import ProfilePage from './pages/ProfilePage';
 import MarketplacePage from './pages/MarketplacePage';
 import { Routes, Route } from 'react-router-dom';
@@ -16,6 +18,7 @@ import { useState } from 'react';
 import { ethers } from 'ethers';
 
 import './App.css';
+import Loading from './components/common/Loading';
 // import Web3 from 'web3';
 
 const style = {
@@ -70,9 +73,7 @@ function App() {
       </>
       <div>
         {loading ? (
-          <div>
-            <p className="mx-3 my-0">Awaiting Metamask Connection...</p>
-          </div>
+          <Loading />
         ) : (
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -82,10 +83,30 @@ function App() {
             />
             <Route path="/explore" element={<ExplorePage />} />
             <Route path="/profile" element={<ProfilePage />} />
-            {/* <Route
+            <Route
               path="/marketplace"
               element={<MarketplacePage marketplace={marketplace} nft={nft} />}
-            /> */}
+            />
+            <Route
+              path="/my-listed-items"
+              element={
+                <MyListedItems
+                  marketplace={marketplace}
+                  nft={nft}
+                  account={account}
+                />
+              }
+            />
+            <Route
+              path="/my-purchases"
+              element={
+                <MyPurchases
+                  marketplace={marketplace}
+                  nft={nft}
+                  account={account}
+                />
+              }
+            />
           </Routes>
         )}
       </div>
