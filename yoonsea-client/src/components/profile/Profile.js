@@ -27,7 +27,7 @@ TBD
 import React from 'react';
 import { useEffect, useState } from 'react';
 import Web3 from 'web3';
-import erc721Abi from '../../contract/erc721Abi';
+import erc721Abi from '../../contracts/erc721Abi';
 import TokenList from './TokenList';
 // import PersonalInfo from './personalize';
 // import { ListBlock } from './styles/Explore.styles';

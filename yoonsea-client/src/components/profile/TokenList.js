@@ -1,5 +1,5 @@
 import Erc721 from './Erc721';
-import erc721abi from '../../contract/erc721Abi';
+import erc721abi from '../../contracts/erc721Abi';
 import { useState } from 'react';
 import { create } from 'ipfs-http-client';
 import { ListBlock } from './styles/Profile.styles';

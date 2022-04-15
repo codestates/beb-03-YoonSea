@@ -18,7 +18,7 @@ async function main() {
 
 function saveFrontendFiles(contract, name) {
   const fs = require('fs');
-  const contractsDir = __dirname + '/../contractsData';
+  const contractsDir = __dirname + '/contractsData';
 
   if (!fs.existsSync(contractsDir)) {
     fs.mkdirSync(contractsDir);
