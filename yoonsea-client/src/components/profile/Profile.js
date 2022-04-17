@@ -16,13 +16,13 @@ TBD
 - implementation of sell/buy NFT
 */
 
-import React, { useContext, useEffect, useState } from 'react';
-import { Context } from '../../context/index';
-// import Web3 from 'web3';
-// import erc721Abi from '../../contracts/erc721Abi';
+import React from 'react';
+import { useEffect, useState } from 'react';
+import Web3 from 'web3';
+import erc721Abi from '../../contracts/erc721Abi';
 import Erc721 from './Erc721';
 
-// const contract = '0x65de69392011009cb52216A8C190aF60B3e856f0';
+const contract = '0x65de69392011009cb52216A8C190aF60B3e856f0';
 // basic account 0xa03f8230eae03394cd760ceb355b14ab14eb6c13
 // other account 0xe904394333347C17c10894a626a16C91BDE36C6E
 
@@ -30,17 +30,21 @@ const profileBasicImg =
   'https://storage.googleapis.com/opensea-static/opensea-profile/21.png';
 
 const Profile = () => {
-  // const [web3, setWeb3] = useState();
+  const [web3, setWeb3] = useState();
   const [account, setAccount] = useState('');
   const [isConnect, setIsConnect] = useState(false);
   const [erc721List, setErc721List] = useState([]);
   const [name, setName] = useState('');
-  const { state } = useContext(Context);
-  const web3 = state.web3;
-  const newErc721addr = state.contractAddr;
-  const abi = state.abi;
 
   useEffect(() => {
+    if (typeof window.ethereum != 'undefined') {
+      try {
+        const web = new Web3(window.ethereum);
+        setWeb3(web);
+      } catch (e) {
+        console.log(e);
+      }
+    }
     connectWallet();
   }, []);
 
@@ -66,8 +70,7 @@ const Profile = () => {
   };
 
   const addNewErc721Token = async () => {
-    const tokenContract = await new web3.eth.Contract(abi, newErc721addr);
-    console.log('tokenContract', tokenContract);
+    const tokenContract = await new web3.eth.Contract(erc721Abi, contract);
     const name = await tokenContract.methods.name().call();
     const symbol = await tokenContract.methods.symbol().call();
     const totalSupply = await tokenContract.methods.totalSupply().call();
@@ -169,9 +172,9 @@ const Profile = () => {
       </div>
       {isConnect && (
         <div className="md:flex flex-wrap">
-          {erc721List.map((token, index) => {
+          {erc721List.map((token) => {
             return (
-              <Erc721 key={index} token={token} web3={web3} account={account} />
+              <Erc721 token={token} account={account} contAddr={contract} />
             );
           })}
         </div>
