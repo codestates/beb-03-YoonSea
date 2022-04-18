@@ -1,22 +1,25 @@
 import { useState } from 'react';
-import Web3 from 'web3';
 import erc721Abi from '../../contracts/erc721Abi';
 
-const Erc721 = ({ token, account, contAddr }) => {
+const Erc721 = ({ web3, token, account, contAddr, addNewErc721Token }) => {
   const [to, setTo] = useState('');
   const [sendBtnFlag, setSendBtnFlag] = useState(true);
 
   const sendToken = async (tokenAddr, tokenId) => {
-    const tokenContract = await new Web3.eth.Contract(erc721Abi, tokenAddr, {
-      from: account,
-    });
-
-    tokenContract.methods
-      .transferFrom(account, to, tokenId)
-      .send({ from: account })
-      .on('receipt', (receipt) => {
-        setTo('');
+    if (checkValidity(to)) {
+      const tokenContract = await new web3.eth.Contract(erc721Abi, tokenAddr, {
+        from: account,
       });
+
+      const trf = await tokenContract.methods
+        .transferFrom(account, to, tokenId)
+        .send({ from: account })
+        .on('receipt', (receipt) => {
+          setTo('');
+        });
+      console.log(trf);
+      addNewErc721Token();
+    }
   };
 
   const checkValidity = (s) => {
@@ -72,13 +75,7 @@ const Erc721 = ({ token, account, contAddr }) => {
               }}
             ></input>
             <div>
-              <button
-                onClick={() => {
-                  if (checkValidity(to)) {
-                    sendToken.bind(this, contAddr, token.tokenId);
-                  }
-                }}
-              >
+              <button onClick={sendToken.bind(this, contAddr, token.tokenId)}>
                 Send
               </button>{' '}
               <button

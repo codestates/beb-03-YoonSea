@@ -174,7 +174,13 @@ const Profile = () => {
         <div className="md:flex flex-wrap">
           {erc721List.map((token) => {
             return (
-              <Erc721 token={token} account={account} contAddr={contract} />
+              <Erc721
+                web3={web3}
+                token={token}
+                account={account}
+                contAddr={contract}
+                addNewErc721Token={addNewErc721Token}
+              />
             );
           })}
         </div>
